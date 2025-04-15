@@ -1,17 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-      <title>Mim's World</title>
+  <title>Pure JavaScript Calculator - Individual Events</title>
 </head>
-
 <body>
-     <h1><b>nothing</b></h1>
-      <b>hello</b><br/>
-	  <strike>hello</strike><br/>
-	  <u>hello</u>
-     <h2>nothing</h2>
-      okay
-     <h3>nothing</h3>
-      bye
+<script>
+// Create container
+const calculator = document.createElement('div');
+
+// Create display
+const display = document.createElement('input');
+display.type = 'text';
+display.disabled = true;
+calculator.appendChild(display);
+
+// Helper function to add buttons
+function addButton(value, onClickFn) {
+  const btn = document.createElement('button');
+  btn.textContent = value;
+  btn.onclick = onClickFn;
+  calculator.appendChild(btn);
+}
+
+// Add buttons individually with separate event functions
+
+addButton('7', function () {
+  display.value += '7';
+});
+addButton('8', function () {
+  display.value += '8';
+});
+addButton('9', function () {
+  display.value += '9';
+});
+addButton('/', function () {
+  display.value += '/';
+});
+
+addButton('4', function () {
+  display.value += '4';
+});
+addButton('5', function () {
+  display.value += '5';
+});
+addButton('6', function () {
+  display.value += '6';
+});
+addButton('*', function () {
+  display.value += '*';
+});
+
+addButton('1', function () {
+  display.value += '1';
+});
+addButton('2', function () {
+  display.value += '2';
+});
+addButton('3', function () {
+  display.value += '3';
+});
+addButton('-', function () {
+  display.value += '-';
+});
+
+addButton('0', function () {
+  display.value += '0';
+});
+addButton('C', function () {
+  display.value = '';
+});
+addButton('=', function () {
+  try {
+    display.value = eval(display.value);
+  } catch {
+    display.value = 'Error';
+  }
+});
+addButton('+', function () {
+  display.value += '+';
+});
+
+// Add everything to body
+document.body.appendChild(calculator);
+</script>
 </body>
 </html>
